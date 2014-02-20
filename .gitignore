@@ -14,3 +14,6 @@ packages
 Web/Logs
 target/
 Web.Publish.xml
+Backup/
+UpgradeLog.*
+_UpgradeReport_Files/

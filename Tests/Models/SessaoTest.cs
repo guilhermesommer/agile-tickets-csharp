@@ -37,5 +37,21 @@ namespace Tests.Models
             sessao.Reserva(3);
             Assert.AreEqual(2, sessao.IngressosDisponiveis);
         }
+
+        [Test]
+        public void PodeReservarSeONumeroDeIngressosForIgualAoDeIngressosDisponiveis()
+        {
+            Sessao sessao = new Sessao();
+            int totalIngressos = new Random().Next(2, 100);
+            int numeroIngressos;
+
+            sessao.TotalDeIngressos = totalIngressos;
+            sessao.IngressosReservados = new Random().Next(1, totalIngressos - 1);
+            numeroIngressos = sessao.TotalDeIngressos - sessao.IngressosReservados;
+
+            bool podeReservar = sessao.PodeReservar(numeroIngressos);
+
+            Assert.AreEqual(podeReservar, true);
+        }
     }
 }
