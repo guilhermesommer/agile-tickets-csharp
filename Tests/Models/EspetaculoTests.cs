@@ -82,6 +82,22 @@ namespace Tests.Models
             Assert.IsFalse(ivete.Vagas(5, 3));
         }
 
+        [Test]
+        public void DeveCriarApenasUmaSessaoQuandoInicioEhIgualAoFim()
+        {
+            //SETUP
+            Espetaculo acdc = new Espetaculo();
+            DateTime inicio = DateTime.Now;
+            DateTime fim = DateTime.Now;
+            Periodicidade periodicidade = Periodicidade.DIARIA;
+
+            //ACT
+            IList<Sessao> result = acdc.CriaSessoes(inicio, fim, periodicidade);
+
+            //ASSERT
+            Assert.AreEqual(result.Count, 1);
+        }
+
         private Sessao SessaoComIngressosSobrando(int quantidade)
         {
             Sessao sessao = new Sessao();
