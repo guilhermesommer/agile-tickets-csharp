@@ -86,13 +86,13 @@ namespace Tests.Models
         public void DeveCriarApenasUmaSessaoQuandoInicioEhIgualAoFim()
         {
             //SETUP
-            Espetaculo acdc = new Espetaculo();
+            Espetaculo espetaculo = new Espetaculo();
             DateTime inicio = DateTime.Now;
             DateTime fim = DateTime.Now;
             Periodicidade periodicidade = Periodicidade.DIARIA;
 
             //ACT
-            IList<Sessao> result = acdc.CriaSessoes(inicio, fim, periodicidade);
+            IList<Sessao> result = espetaculo.CriaSessoes(inicio, fim, periodicidade);
 
             //ASSERT
             Assert.AreEqual(result.Count, 1);
